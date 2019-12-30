@@ -4,6 +4,9 @@ import com.xuanzjie.filemanage.response.ResResult;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RequestPart;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -28,11 +31,11 @@ public interface FileManageApi {
     ResResult<Integer> uploadFile(HttpServletRequest request, HttpServletResponse response);
 
     /**
-     * 测试
-     * @param request
-     * @param response
+     * 文件上传测试
+     *
+     * @param file
      * @return
      */
-    @GetMapping(value = "/file/test")
-    ResResult<String> test(HttpServletRequest request, HttpServletResponse response);
+    @PostMapping(value = "/file/uploadTest")
+    ResResult<Integer> uploadFileTest(@RequestParam("file") MultipartFile file);
 }

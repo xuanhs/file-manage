@@ -16,4 +16,13 @@ spring:
     url: jdbc:mysql://47.107.111.6:3306/experiment_platform
     username: root
     password: mysqlmima
+  http:
+    encoding:
+      charset: UTF-8
+logging:
+  level:
+    root: info
+  file:
+    path: E:/manageData
+    name: ${logging.file.path}/%d{yyyy-MM-dd}.log
 

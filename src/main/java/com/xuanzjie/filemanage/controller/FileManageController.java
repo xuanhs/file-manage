@@ -6,9 +6,12 @@ import com.xuanzjie.filemanage.service.FileManageService;
 import com.xuanzjie.filemanage.utils.ResUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.List;
 
 /**
  * @Author: xuan
@@ -26,7 +29,7 @@ public class FileManageController implements FileManageApi {
     }
 
     @Override
-    public ResResult<String> test(HttpServletRequest request, HttpServletResponse response) {
-        return ResUtils.data("测试测试");
+    public ResResult<Integer> uploadFileTest(MultipartFile file) {
+        return ResUtils.data(fileManageService.uploadFileTest(file));
     }
 }
