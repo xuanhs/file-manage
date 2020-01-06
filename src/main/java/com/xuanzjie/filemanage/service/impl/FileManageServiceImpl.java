@@ -3,7 +3,6 @@ package com.xuanzjie.filemanage.service.impl;
 import com.xuanzjie.filemanage.service.FileManageService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
-import org.springframework.util.CollectionUtils;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
@@ -23,20 +22,21 @@ import java.util.List;
 public class FileManageServiceImpl implements FileManageService {
 
     public final static String FILE_PATH = "E:\\upload\\";
+
     @Override
     public Integer uploadFile(HttpServletRequest request, HttpServletResponse response) {
-        List<MultipartFile> fileList = ((MultipartHttpServletRequest)request).getFiles("fileList");
+        List<MultipartFile> fileList = ((MultipartHttpServletRequest) request).getFiles("fileList");
         return upload(fileList);
     }
 
     @Override
     public Integer uploadFileTest(MultipartFile file) {
 
-        if(file==null){
+        if (file == null) {
             return 0;
         }
         String fileName = file.getOriginalFilename();
-        File file1 = new File(FILE_PATH+fileName);
+        File file1 = new File(FILE_PATH + fileName);
         try {
             file.transferTo(file1);
         } catch (IOException e) {
@@ -47,17 +47,17 @@ public class FileManageServiceImpl implements FileManageService {
 
     private Integer upload(List<MultipartFile> fileList) {
 
-        for(MultipartFile multipartFile : fileList){
+        for (MultipartFile multipartFile : fileList) {
             String fileName = multipartFile.getOriginalFilename();
-            File file = new File(FILE_PATH+fileName);
+            File file = new File(FILE_PATH + fileName);
             try {
                 multipartFile.transferTo(file);
             } catch (IOException e) {
                 e.printStackTrace();
-                log.warn("上传文件出错 {} ",multipartFile.getOriginalFilename());
+                log.warn("上传文件出错 {} ", multipartFile.getOriginalFilename());
             }
         }
-        log.info("上传文件数量：{}",fileList.size());
+        log.info("上传文件数量：{}", fileList.size());
         return fileList.size();
     }
 }

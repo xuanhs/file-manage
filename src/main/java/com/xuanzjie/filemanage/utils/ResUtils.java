@@ -22,6 +22,10 @@ public class ResUtils {
         return result(SUC, SUC_DESC, data);
     }
 
+    public static <T> ResResult<T> fail(T data) {
+        return result(FAIL, SUC_DESC, data);
+    }
+
     private static <T> ResResult<T> result(int code, String desc, T data) {
         return new ResResult<>(code, desc, data);
     }
