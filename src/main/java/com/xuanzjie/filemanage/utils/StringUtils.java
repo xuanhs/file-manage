@@ -7,4 +7,11 @@ package com.xuanzjie.filemanage.utils;
  */
 public class StringUtils {
 
+    public static Boolean isEmpty(String string) {
+        if (string.isEmpty() || string.length() <= 0) {
+            return false;
+        }
+        return true;
+    }
+
 }
