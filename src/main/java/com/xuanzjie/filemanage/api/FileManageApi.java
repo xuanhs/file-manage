@@ -1,6 +1,6 @@
 package com.xuanzjie.filemanage.api;
 
-import com.xuanzjie.filemanage.response.ResResult;
+import com.xuanzjie.personnelmanage.utils.ResResult;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;

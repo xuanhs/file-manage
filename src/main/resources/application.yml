@@ -19,6 +19,11 @@ spring:
   http:
     encoding:
       charset: UTF-8
+  main:
+    allow-bean-definition-overriding: true
+ribbon:
+    ConnectTimeout: 6000
+    ReadTimeout: 6000
 logging:
   level:
     root: info
