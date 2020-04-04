@@ -1,5 +1,6 @@
 package com.xuanzjie.filemanage.service;
 
+import com.xuanzjie.filemanage.wrapper.FileWrapper;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
@@ -16,6 +17,8 @@ public interface FileManageService {
 
     Integer uploadFile(HttpServletRequest request, HttpServletResponse response);
 
+    Integer uploadCourseImage(HttpServletRequest request, HttpServletResponse response,
+                              FileWrapper.CourseCoverDTO courseCoverDTO);
 
     Integer uploadFileTest(MultipartFile file);
 }

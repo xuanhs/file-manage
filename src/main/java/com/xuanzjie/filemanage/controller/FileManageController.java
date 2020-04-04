@@ -2,10 +2,13 @@ package com.xuanzjie.filemanage.controller;
 
 import com.xuanzjie.filemanage.api.FileManageApi;
 import com.xuanzjie.filemanage.service.FileManageService;
+import com.xuanzjie.filemanage.wrapper.FileWrapper;
 import com.xuanzjie.personnelmanage.api.UserServiceApi;
 import com.xuanzjie.personnelmanage.utils.ResResult;
 import com.xuanzjie.personnelmanage.utils.ResUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -29,6 +32,12 @@ public class FileManageController implements FileManageApi {
     @Override
     public ResResult<Integer> uploadFile(HttpServletRequest request, HttpServletResponse response) {
         return ResUtils.data(fileManageService.uploadFile(request, response));
+    }
+
+    @Override
+    public ResResult<Integer> uploadCourseImage(HttpServletRequest request, HttpServletResponse response,
+                                                FileWrapper.CourseCoverDTO courseCoverDTO) {
+        return ResUtils.data(fileManageService.uploadCourseImage( request,response,courseCoverDTO));
     }
 
     @Override

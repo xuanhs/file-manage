@@ -1,5 +1,6 @@
 package com.xuanzjie.filemanage.api;
 
+import com.xuanzjie.filemanage.wrapper.FileWrapper;
 import com.xuanzjie.personnelmanage.utils.ResResult;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -28,6 +29,9 @@ public interface FileManageApi {
      */
     @PostMapping(value = "/upload")
     ResResult<Integer> uploadFile(HttpServletRequest request, HttpServletResponse response);
+
+    @PostMapping(value = "/uploadCourseImage")
+    ResResult<Integer> uploadCourseImage(HttpServletRequest request, HttpServletResponse response, FileWrapper.CourseCoverDTO courseCoverDTO);
 
     /**
      * 文件上传测试
